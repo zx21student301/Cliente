@@ -1,0 +1,59 @@
+body{
+    background:black;
+}
+.tablero{
+    display:grid;
+    grid-template-columns:auto auto auto;
+    background:#000000;
+    justify-content:center;
+    gap:30px;
+    margin-top:8%;
+}
+
+.tablero > div {
+    background:black;
+    width:220px;
+    height:220px;
+}
+
+.tablero > div > img {
+    padding:10px;
+    border-radius:70px;
+    box-shadow:14px 14px 28px #ff0000,
+                -14px -14px 28px #0778ff;
+}
+
+#ganador{
+    color:white;
+    text-align:center;
+    font-size:50px;
+}
+
+.btnReset{
+    text-align:center;
+    margin-top:3%;
+}
+
+#btnR {
+    font-size:30px;
+    min-width: 130px;
+    height: 40px;
+    color: #0778ff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #0778ff;
+    background: #ff0000;
+}
+
+#btnR:hover {
+  background: #fff;
+  color: #ff0000;
+}
+
+

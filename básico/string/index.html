@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadenas de caracteres</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- mi javascript -->
+    <script type="text/javascript" src="js/string.js"></script>    
+</head>
+<body>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 mx-auto d-block">
+                <div class="mb-3 mt-3">
+                    <label for="cadena" class="form-label">Texto:</label>
+                    <input type="text" class="form-control" id="cadena" placeholder="texto" name="cadena">
+                </div>
+                <hr>
+                <button type="button" class="btn btn-primary" id="btnEjer1" onclick="ejer1()">Separar las letras en líneas de una frase de entrada.</button>
+                <p class="text-center">Ejercicio 1</p>
+                <p class="text-center" id="pEjer1"></p>
+                <hr>
+                <button type="button" class="btn btn-primary" id="btnEjer2" onclick="ejer2()">Contar las letras de una frase.</button>
+                <p class="text-center">Ejercicio 2</p>
+                <p class="text-center" id="pEjer2"></p>
+                <hr>
+                <button type="button" class="btn btn-primary" id="btnEjer3" onclick="ejer3()">Dar la vuelta a una frase.</button>
+                <p class="text-center">Ejercicio 3</p>
+                <p class="text-center" id="pEjer3"></p>
+                <hr>
+                <div class="mb-3 mt-3">
+                    <label for="cadena" class="form-label">Palabra a buscar:</label>
+                    <input type="text" class="form-control" id="palabra" placeholder="palabra a buscar" name="palabra">
+                </div>
+                <button type="button" class="btn btn-primary" id="btnEjer4" onclick="ejer4()">Buscar una palabra dentro de una frase.</button>
+                <p class="text-center">Ejercicio 4</p>
+                <p class="text-center" id="pEjer4"></p>
+                <hr>
+                <div class="mb-3 mt-3">
+                    <label for="cadena" class="form-label">Letra a buscar:</label>
+                    <input type="text" class="form-control" id="letra" placeholder="letra a buscar" name="letra">
+                </div>
+                <button type="button" class="btn btn-primary" id="btnEjer5" onclick="ejer5()">Contar las veces que aparece una letra dentro de una frase.</button>
+                <p class="text-center">Ejercicio 5</p>
+                <p class="text-center" id="pEjer5"></p>
+                <hr>
+                <button type="button" class="btn btn-primary" id="btnEjer6" onclick="ejer6()">Contar todas las veces que aparecen las vocales en una frase por separado, número de a, número de e, etc...</button>
+                <p class="text-center">Ejercicio 6</p>
+                <p class="text-center" id="pEjer6"></p>
+                <hr>
+                <button type="button" class="btn btn-primary" id="btnEjer7" onclick="ejer7()">Dividir una frase en palabras.</button>
+                <p class="text-center">Ejercicio 7</p>
+                <p class="text-center" id="pEjer7"></p>
+                <hr>
+                <button type="button" class="btn btn-primary" id="btnEjer8" onclick="ejer8()">Dar la vuelta a las palabras de una frase.</button>
+                <p class="text-center">Ejercicio 8</p>
+                <p class="text-center" id="pEjer8"></p>
+                <hr>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>    
+</body>
+</html>
