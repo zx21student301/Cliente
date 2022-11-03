@@ -25,15 +25,19 @@ function llamadaServidor() {
 	jsonhttp.onreadystatechange  = function(){
 		//evaluar la respuesta del servidor
 		//this.status = es el tipo de error que puede dar el servidor (200 -> encontrado, 400 -> no encontrado)
-		if(this.readyState == 4 && this.status == 200){
-			let listaN = JSON.parse(this.responseText);
-			let lista  = "<ul>";
-			for (n of listaN){
-				lista += "<li>"+n+"</li>"
-			}
-			lista += "</ul>";
+		if ( (0<ini && ini<fin && fin<10)){
+			if(this.readyState == 4 && this.status == 200){
+				let listaN = JSON.parse(this.responseText);
+				let lista  = "<ul>";
+				for (n of listaN){
+					lista += "<li>"+n+"</li>"
+				}
+				lista += "</ul>";
 
-			parrafo.innerHTML = lista;
+				parrafo.innerHTML = lista;
+			}
+		}else{
+			parrafo.innerHTML="error"
 		}
 	}
 

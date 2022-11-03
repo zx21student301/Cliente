@@ -12,7 +12,4 @@ fibo = [1,1,2,3,5,8,13,21,34,55]
 
 print("Conten-Type: text/plain\n")
 
-if 0<i<f<10:
-	print(json.dumps(fibo[i-1:f]))
-else:
-	print(json.dumps(-1))
+print(json.dumps(fibo[i-1:f]))
