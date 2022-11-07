@@ -59,6 +59,6 @@ function dibujarCirculo(){
 	let radio = document.getElementById("radio").value;
 
 	ctx4.beginPath();
-	ctx4.arc(x, y, radio, 0, 2 * Math.PI);
+	ctx4.arc(x, y, radio, 0, 2 * Math.PI); //ctx.arc(x,y,radio,empieza arco (radianes),termina arco (radianes))
 	ctx4.stroke();
 }
