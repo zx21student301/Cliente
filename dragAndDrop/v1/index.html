@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Drag And Drop</title>
+	<script type="text/javascript" src="js/dad.js"></script>
+	<link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body>
+	<div class="padre">
+	  <div class="origen" ondragover="llegada()" ondrop="solto()">
+
+	    <div id="arrastrable-1" class="arrastrable" draggable="true" ondragstart="arrastrando()" ondragend="finArrastre()">
+	      draggable
+	    </div>
+
+	  </div>
+
+	  <div id="destino" class="destino" ondragover="llegada()" ondrop="solto()">
+	    dropzone
+	  </div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Canvas con Clases</title>
+	<script type="text/javascript" src="js/rectangulo.js"></script>
+	<script type="text/javascript" src="js/dbjCanvas.js"></script>
+	<script type="text/javascript" src="js/principal.js"></script>
+</head>
+<body style="text-align: center;">
+	<h3>Dibuja en un canvas</h3>
+	<label for="height">Alto:</label>
+	<input type="number" min="10" max="390" name="height" id="height" value="10" onchange="dibuja()">
+	<br>
+	<label for="width">Ancho:</label>
+	<input type="number" min="10" max="390" name="width" id="width" value="10" onchange="dibuja()">
+	<br>
+	<button type="button" id="btnReset" onclick="limpiarCanvas()">Reset</button>
+	<br>
+	<canvas id="canvas" width="400" height="600" style="border: 1px solid black;"></canvas>
+</body>
+</html>

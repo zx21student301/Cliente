@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To Do List</title>
+  <script type="text/javascript" src="js/tdl.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+  <h1>To-do list</h1>
+  <div class="padre">
+    <div class="origen" 
+        ondragover="llegada();"
+        ondrop="solto();">
+        To-do
+        <div
+          id="arrastrable-1"
+          class="arrastrable"
+          draggable="true"
+          ondragstart="arrastrando();"
+        >
+          thing 1
+        </div>
+        <div
+          id="arrastrable-2"
+          class="arrastrable"
+          draggable="true"
+          ondragstart="arrastrando();"
+        >
+          thing 2
+        </div>
+        <div
+          id="arrastrable-3"
+          class="arrastrable"
+          draggable="true"
+          ondragstart="arrastrando();"
+        >
+          thing 3
+        </div>
+        <div
+          id="arrastrable-4"
+          class="arrastrable"
+          draggable="true"
+          ondragstart="arrastrando();"
+        >
+          thing 4
+        </div>
+    </div>
+
+    <div
+      class="destino"
+      ondragover="llegada();"
+      ondrop="solto();"
+    >
+      Done
+    </div>
+  </div>
+</body>
+</html>
