@@ -11,17 +11,6 @@ function principal(){
     }
 }
 
-function comprobar(){
-    let text = $("#tablero").text();
-
-    if(text != text.split('').sort().join('')){
-        alert("Algo no está ordenado");
-    }else{
-        alert("Esta todo ordenado");
-    }
-}
-
-
 function arrastrando(){
     event.dataTransfer.setData('text/plain', event.target.id);
 }
@@ -38,5 +27,19 @@ function solto(){
 
     destino.append(elementoArrastrado);
 
+    let text = $("#tablero").text();
+
+    if(text != text.split('').sort().join('')){
+        $("#tablero span").css("color","red");
+        setInterval(volverNormal, 1500);
+    }else{
+        $("#tablero span").css("color","green");
+        setInterval(volverNormal, 1500);
+    }
+
     event.dataTransfer.cleanData;
+}
+
+function volverNormal(){
+    $("#tablero span").css("color","black");
 }
