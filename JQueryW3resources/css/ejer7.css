@@ -1,0 +1,24 @@
+.table_style {
+	width: 500px;
+	margin: 0px auto;
+	}
+	table{
+	width: 100%;
+	border-collapse: collapse;
+	}
+	table tr td{
+	width: 50%;
+	border: 1px solid 
+#ff751a;
+	padding: 5px;
+	}
+	table tr th{
+	border: 1px solid 
+#79ff4d;
+	padding: 5px;
+	}
+	.zebra{
+	background-color:  
+#ff0066;
+	}
+	</style>
