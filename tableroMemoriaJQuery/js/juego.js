@@ -1,18 +1,27 @@
 $(crearTablero);
+$(cartasRandom);
 
 let volteadas = 0;
 let par1 = "";
 let par2 = "";
+let id1 = "";
+let id2 = "";
+let parejas = [
+	"img/rashoMakuin.jpg",
+	"img/rashoMakuin.jpg",
+	"img/francesco.jfif",
+	"img/francesco.jfif",
+	"img/mate.jpg",
+	"img/mate.jpg"
+	];
+
+let parejasRandom = [];
 
 function crearTablero(){
-	let cartas = 6;
 
-	$("<div class='grid-container'>").appendTo("body");
-
-	for (var i = 0; i < cartas; i++) {
+	for (var i = 0; i < parejas.length; i++) {
 		let dI = {
 			class: "grid-item",
-			id: i,
 		}
 
 		let im = {
@@ -29,64 +38,68 @@ function crearTablero(){
 		$(".grid-container").append(divImg);
 	}
 
-	$("</div>").appendTo("body");
-
 	$(".imagenes").click(voltearCarta)
+}
+
+function cartasRandom(){
+	parejasRandom = parejas.sort(function(){
+		return Math.random() - 0.5;
+	})
 }
 
 function voltearCarta(){
 		let id = $(this).attr("id");
-
-		let p1 = "img/rashoMakuin.jpg"
-		let p2 = "img/mate.jpg"
-		let p3 = "img/guido.jfif"
+		let rutaId = "#"+id;
 
 		if(volteadas != 2){
-			switch(id){
-				case "0":
-					$(this).attr("src",p1);
-					if($(this).attr("oculto") == "si"){
-						volteadas++;
-					}
-					$(this).attr("oculto","no");
-					break;
-				case "1":
-					$(this).attr("src",p2);
-					if($(this).attr("oculto") == "si"){
-						volteadas++;
-					}
-					$(this).attr("oculto","no");
-					break;
-				case "2":
-					$(this).attr("src",p1);
-					if($(this).attr("oculto") == "si"){
-						volteadas++;
-					}
-					$(this).attr("oculto","no");
-					break;
-				case "3":
-					$(this).attr("src",p3);
-					if($(this).attr("oculto") == "si"){
-						volteadas++;
-					}
-					$(this).attr("oculto","no");
-					break;
-				case "4":
-					$(this).attr("src",p3);
-					if($(this).attr("oculto") == "si"){
-						volteadas++;
-					}
-					$(this).attr("oculto","no");
-					break;
-				case "5":
-					$(this).attr("src",p2);
-					if($(this).attr("oculto") == "si"){
-						volteadas++;
-					}
-					$(this).attr("oculto","no");
-					break;
+			$(this).attr("src",parejasRandom[id]);
+			if($(rutaId).attr("oculto") == "si"){
+				if(volteadas == 0){
+					par1 = $(this).attr("src");
+					id1 = rutaId;
+				}else if (volteadas == 1){
+					par2 = $(this).attr("src");
+					id2 = rutaId;
+				}
+				volteadas++;
 			}
-		}else if(volteadas == 2){
-
+			$(rutaId).attr("oculto","no");
 		}
+
+		if(volteadas == 2){
+			comprobarPareja();
+		}
+}
+
+function comprobarPareja(){
+	if(par1 == par2){
+		id1=""
+		id2=""
+		par1=""
+		par2=""
+		volteadas=0
+	}else{
+		setTimeout(function(){
+			$(id1).attr("src","img/interrogacion.png");
+			$(id2).attr("src","img/interrogacion.png");
+			$(id1).attr("oculto","si");
+			$(id2).attr("oculto","si");
+			id1=""
+			id2=""
+			par1=""
+			par2=""
+			volteadas=0
+		}, 1000)
+	}
+
+	if($("[oculto = 'no']").length == parejas.length){
+		setTimeout(function(){
+			let conf = confirm("¿Quieres jugar de nuevo?");
+			if(conf){
+				$(".grid-container").empty();
+				crearTablero();
+				cartasRandom();
+			}
+		},1000)
+	}
 }
