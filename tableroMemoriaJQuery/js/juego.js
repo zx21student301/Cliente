@@ -1,7 +1,6 @@
 $(crearTablero);
 $(cartasRandom);
 
-
 let volteadas = 0;
 let par1 = "";
 let par2 = "";
