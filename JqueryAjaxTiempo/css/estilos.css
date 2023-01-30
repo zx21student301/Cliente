@@ -1,0 +1,29 @@
+body{
+    background-color: lightblue;   
+}
+
+#table_predic{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#table_head_predic{
+    background-color: rgb(39, 39, 165);
+    color:white;
+}
+
+#table_head_predic td{
+    padding: 15px;
+    border-right: 2px white solid;
+}
+
+#table_head_predic td:last-child{
+    border: none;
+}
+
+#row_tiempo img{
+    width: 50%;
+}
