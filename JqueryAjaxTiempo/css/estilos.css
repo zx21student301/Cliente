@@ -24,6 +24,49 @@ body{
     border: none;
 }
 
+#row_tiempo td{
+    background-color: skyblue;
+    border-right: white 2px solid;
+}
+
+#row_tiempo td:last-child{
+    border: none;
+}
+
+#row_temp_titulos td{
+    background-color: skyblue;
+    border-right: white 2px solid;
+    border-top: white 2px solid;
+}
+
+#row_temp_titulos td:last-child{
+    border-right: none;
+}
+
+#row_temp td{
+    background-color: skyblue;
+    border-right: white 2px solid;
+}
+
+#row_temp td:last-child{
+    border: none;
+}
+
+#row_temp_min{
+    color:blue;
+}
+
+#row_temp_max{
+    color:red;
+}
+
 #row_tiempo img{
     width: 50%;
+}
+
+#graficoLineas{
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 500px;
+    max-height: 500px;
 }

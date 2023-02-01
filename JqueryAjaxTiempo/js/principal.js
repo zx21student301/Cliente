@@ -1,15 +1,9 @@
 $(principal)
 
 let UrlDatos = "";
-const diasSemana = [
-	'dom',
-	'lun',
-	'mar',
-	'mié',
-	'jue',
-	'vie',
-	'sáb',
-  ];
+let dias = [];
+let tempMax = [];
+let tempMin = [];
 
 function principal(){
 	$.ajax({
@@ -31,8 +25,14 @@ function rellenarTabla(dat){
 	let arrayDias = dat[0].prediccion.dia;
 	for (let index = 0; index < arrayDias.length; index++) {
 		let fecha = arrayDias[index].fecha
+
+		let fechaGuardar = new Date(fecha).getDate()+"/"+(new Date(fecha).getMonth()+1);
+
+		dias.push(fechaGuardar);
+
+		const opciones = {weekday:'short', day:'numeric'}
 		$("#row_fecha").append(
-			`<td colspan="2">${diasSemana[new Date(fecha).getDay()]}  ${new Date(fecha).getDate()}</td>`
+			`<td colspan="2">${new Date(fecha).toLocaleDateString('es-ES',opciones)}</td>`
 		)
 
 		let contador = 0;
@@ -50,6 +50,9 @@ function rellenarTabla(dat){
 			<td id="row_temp_titulo_max">Tª máxima</td>`
 		)
 
+		tempMax.push(arrayDias[index].temperatura.maxima);
+		tempMin.push(arrayDias[index].temperatura.minima);
+
 		$("#row_temp").append(
 			`<td id="row_temp_min">${arrayDias[index].temperatura.minima}</td>
 			<td id="row_temp_max">${arrayDias[index].temperatura.maxima}</td>`
@@ -64,24 +67,36 @@ function crearGrafico(d){
 	Chart.defaults.global.defaultFontFamily = "Lato";
 	Chart.defaults.global.defaultFontSize = 18;
 
-	var lineChart = new Chart(grafLineas, {
-		type: 'line',
-		data: speedData,
-		options: chartOptions
-	});
+	let arrayDias = d[0].prediccion.dia;
 
 	var speedData = {
-		labels: ["0s", "10s", "20s", "30s", "40s", "50s", "60s"],
+		labels: dias,
 		datasets: [{
-			label: "Car Speed",
-			data: [0, 59, 75, 20, 20, 55, 40],
+			label: "Tª máxima",
+			data: tempMax,
 			lineTension: 0,
 			fill: false,
-			borderColor: 'orange',
+			borderColor: 'red',
 			backgroundColor: 'transparent',
 			borderDash: [5, 5],
-			pointBorderColor: 'orange',
-			pointBackgroundColor: 'rgba(255,150,0,0.5)',
+			pointBorderColor: 'red',
+			pointBackgroundColor: 'rgba(255,0,0,0.5)',
+			pointRadius: 5,
+			pointHoverRadius: 10,
+			pointHitRadius: 30,
+			pointBorderWidth: 2,
+			pointStyle: 'rectRounded'
+		  },
+		  {
+			label: "Tª mínima",
+			data: tempMin,
+			lineTension: 0,
+			fill: false,
+			borderColor: 'blue',
+			backgroundColor: 'transparent',
+			borderDash: [5, 5],
+			pointBorderColor: 'blue',
+			pointBackgroundColor: 'rgba(2,156,252,1)',
 			pointRadius: 5,
 			pointHoverRadius: 10,
 			pointHitRadius: 30,
@@ -94,9 +109,15 @@ function crearGrafico(d){
 		  display: true,
 		  position: 'top',
 		  labels: {
-			boxWidth: 80,
+			boxWidth: 5,
 			fontColor: 'black'
 		  }
 		}
 	};
+
+	var lineChart = new Chart(grafLineas, {
+		type: 'line',
+		data: speedData,
+		options: chartOptions
+	});
 }
