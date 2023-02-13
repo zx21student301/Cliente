@@ -1,0 +1,18 @@
+.col-4 input{
+	display: block;
+	margin: 10px;
+	margin-top: 0;
+}
+
+.col-12 input{
+	display: inline;
+}
+
+.tablaEntrada{
+	margin: 0 auto; 
+	margin-bottom: 30px;
+}
+
+.tablaSalida{
+	margin: 0 auto;
+}

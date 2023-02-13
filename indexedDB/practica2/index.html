@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Practica 2 IndexedDB</title>
+</head>
+<body>
+	<div>
+		<label for="v1">Id</label>
+		<input type="text" name="valor1" id="valor1"><br>
+		<label for="v1">Valor 2</label>
+		<input type="text" name="valor2" id="valor2"><br>
+		<label for="v1">Valor 3</label>
+		<input type="text" name="valor3" id="valor3"><br>
+		<button type="button" onclick="guardar()">Guardar</button><br>
+		<button type="button" onclick="listar()">Listado</button><br>
+	</div>
+	<hr>
+	<div id="salida">
+		<table id="datos" style="width:75%; margin:0 auto;" border="1">
+			<tr><th>Clave</th><th>Valor</th></tr>
+		</table>
+
+	<script type="text/javascript" src="js/jquery-3.6.1.js"></script>
+  	<script type="text/javascript" src="js/indexedDB.js"></script>
+</body>
+</html>
