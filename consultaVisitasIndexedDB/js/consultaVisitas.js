@@ -5,6 +5,31 @@ let openRequestSalida = indexedDB.open("salida", 1);
 
 let db;
 
+function cargarTablas(){
+    //cargar Tabla entradas
+    //para poder leer la indexedDB se cambia el tipo de readwrite a readonly
+	let trns = db.transaction("controlVisitas","readonly");
+
+	let almacenValores = trns.objectStore("controlVisitas");
+
+	let request = almacenValores.openCursor();
+
+	// llamado por cada valor encontrado por el cursor
+	request.onsuccess = function() {
+	  let cursor = request.result;
+	  if (cursor) {
+	    let key = cursor.key; // clave del objeto (el campo id)
+	    let value = cursor.value; // valor del objeto
+        $("#entrada").append(
+            `<tr><td>${value.nombre}</td><td>${value.apellidos}</td><td>${key}</td><td>${value.persCont}</td><td>${value.horaEntrada}</td><td><button onclick="ficharSalida(${key})">Salida</button></tr>`
+        );
+	    cursor.continue();
+	  } else {
+	    console.log("No hay más valores");
+	  }
+	};
+}
+
 //funciones apartado ENTRADA
 openRequestEntrada.onsuccess=function(){
     db = openRequestEntrada.result;
@@ -52,19 +77,29 @@ function registrar() {
 
 function rellenarTabla(){
 
-    //guardar la hora, minutos y segundos
-    let date = new Date();
-    let hour = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+    $("#entrada").empty();
 
-    let dni =  $('#dni').val()
-    let nombre = $('#nom').val()
-    let apellidos = $('#apell').val()
-    let persCont = $("#persCont").val()
-    let horaEntrada = hour
+    //para poder leer la indexedDB se cambia el tipo de readwrite a readonly
+	let trns = db.transaction("controlVisitas","readonly");
 
-    $("#entrada").append(
-        `<tr><td>${nombre}</td><td>${apellidos}</td><td>${dni}</td><td>${persCont}</td><td>${horaEntrada}</td><td><button onclick="ficharSalida(${dni})">Salida</button></tr>`
-    );
+	let almacenValores = trns.objectStore("controlVisitas");
+
+	let request = almacenValores.openCursor();
+
+	// llamado por cada valor encontrado por el cursor
+	request.onsuccess = function() {
+	  let cursor = request.result;
+	  if (cursor) {
+	    let key = cursor.key; // clave del objeto (el campo id)
+	    let value = cursor.value; // valor del objeto
+        $("#entrada").append(
+            `<tr><td>${value.nombre}</td><td>${value.apellidos}</td><td>${key}</td><td>${value.persCont}</td><td>${value.horaEntrada}</td><td><button onclick="ficharSalida(${dni})">Salida</button></tr>`
+        );
+	    cursor.continue();
+	  } else {
+	    console.log("No hay más valores");
+	  }
+	};
 }
 
 function error(){
@@ -76,4 +111,8 @@ function exito(){
 }
 
 function limpiar(){
+    $('#dni').val("");
+    $('#nom').val("");
+    $('#apell').val("");
+    $("#persCont").val("");
 }
