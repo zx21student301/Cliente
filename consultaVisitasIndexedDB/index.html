@@ -34,8 +34,7 @@
 			</div>
 		</div>
 		<div class="row" style="margin-bottom: 10px;">
-			<div class="col-2"></div>
-			<div class="col-8 border border-primary">
+			<div class="col-5 border border-primary">
 				<div class="row">
 					<div class="col-3"></div>
 					<div class="col-6" style="text-align: center;"><h3>Entradas</h3></div>
@@ -43,11 +42,11 @@
 				</div>
 				<div class="col-12">
 					<label for="dniEntrada">Buscar por DNI:</label>
-					<input type="text" name="dniEntrada" id="dniEntrada" placeholder="DNI">
+					<input type="text" name="dniEntrada" id="dniEntrada" placeholder="DNI" onchange="buscarDNI('e')">
 				</div>
 				<div class="col-12">
 					<label for="apellEntrada">Buscar por Apellidos:</label>
-					<input type="text" name="apellEntrada" id="apellEntrada" placeholder="Apellidos">
+					<input type="text" name="apellEntrada" id="apellEntrada" placeholder="Apellidos" onchange="buscarApell('e')">
 				</div>
 				<div class="row">
 					<div class="col-2"></div>
@@ -68,11 +67,8 @@
 					<div class="col-2"></div>
 				</div>
 			</div>
-			<div class="col-2"></div>
-		</div>
-		<div class="row" style="margin-bottom: 10px;">
-			<div class="col-2"></div>
-			<div class="col-8 border border-danger">
+			<div class="col-1"></div>
+			<div class="col-6 border border-danger">
 				<div class="row">
 					<div class="col-3"></div>
 					<div class="col-6" style="text-align: center;"><h3>Salidas</h3></div>
@@ -80,11 +76,11 @@
 				</div>
 				<div class="col-12">
 					<label for="dniSalida">Buscar por DNI:</label>
-					<input type="text" name="dniSalida" id="dniSalida" placeholder="DNI">
+					<input type="text" name="dniSalida" id="dniSalida" placeholder="DNI" onchange="buscarDNI('s')">
 				</div>
 				<div class="col-12">
 					<label for="apellSalida">Buscar por Apellidos:</label>
-					<input type="text" name="apellSalida" id="apellSalida" placeholder="Apellidos">
+					<input type="text" name="apellSalida" id="apellSalida" placeholder="Apellidos" onchange="buscarApell('s')">
 				</div>
 				<div class="row">
 					<div class="col-2"></div>
@@ -107,7 +103,6 @@
 					<div class="col-2"></div>
 				</div>
 			</div>
-			<div class="col-2"></div>
 		</div>
 	</div>
 
